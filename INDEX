@@ -1,0 +1,25 @@
+edge detection:
+
+  edgepoints	   detection of edge points in noisy images based on 
+		   the Difference of two M-Kernel-Estimates
+
+  eplist	   convert matrices returned by edgepoints into lists
+
+
+regression clustering:
+
+  oregMclust       compute orthogonal regression clusters based on
+		   redescending M-estimatiors 
+
+  regparm	   transform the representation of regression lines
+
+  circMclust       compute circular clusters
+
+  deldupMclust	   delete clusters differing only by rounding errors
+
+  bestMclust	   choose 'best' out of found clusters
+
+  projMclust	   calculate number of observations projected to each
+		   found cluster 
+
+  envMclust	   count observation lying in a neighbourhood of clusters
