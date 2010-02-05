@@ -35,7 +35,7 @@
   \code{test=TRUE}). The third column contains the corresponding angles.
 }
 
-\author{ Tim Garlipp, garlipp@mathematik.uni-oldenburg.de }
+\author{Tim Garlipp, \email{TimGarlipp@gmx.de}}
 
 \seealso{\code{\link{edgepoints}}}
 

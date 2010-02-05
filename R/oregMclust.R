@@ -258,7 +258,7 @@ oregMclust <- function(datax, datay, bw, method="const",
 }
 
 plot.oregMclust <- function(x,datax,datay,
-	prec=3,rcol="black",rlty=1,rlwd=3,...){
+    prec=3,rcol="black",rlty=1,rlwd=3,...){
 
   myline <- function (alpha,beta){
     if (alpha!=0)
@@ -307,9 +307,9 @@ regparm <- function(reg){
 circMclust <- function(datax, datay, bw,
                        method="const", prec=4,
                        minsx=min(datax),           maxsx=max(datax), nx=10,
-                       minsy=min(datay),    	   maxsy=max(datay), ny=10,
+                       minsy=min(datay),           maxsy=max(datay), ny=10,
                        minsr=0.01*max(datax,datay), 
-		       maxsr=(max(datax,datay)-min(datax,datay)),    nr=10,
+               maxsr=(max(datax,datay)-min(datax,datay)),    nr=10,
                        nsc=5,         nc=NULL, 
                        minsd=NULL,    maxsd=NULL,
                        brminx=minsx,  brmaxx=maxsx,
@@ -572,7 +572,7 @@ plot.circMclust <- function(x,datax,datay,ccol="black",clty=1,clwd=3,...){
         invisible()
       }
 
-  plot(datax,datay,xlim=range(c(x,y)),ylim=range(c(x,y)),...)
+  plot(datax,datay,xlim=range(c(datax,datay)),ylim=range(c(datax,datay)),...)
 
   if (is.matrix(x))
     for (i in 1:nrow(x))

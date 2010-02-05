@@ -1,0 +1,6 @@
+useDynLib(edci)
+export(edgecluster, edgepoints, eplist, deldupMclust, oregMclust, regparm, circMclust, bestMclust, projMclust, envMclust)
+S3method(plot, oregMclust)
+S3method(print, oregMclust)
+S3method(plot, circMclust)
+S3method(print, circMclust)

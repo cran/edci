@@ -43,7 +43,7 @@
   \code{\link{edgepoints}}.
 }
 
-\author{ Tim Garlipp, garlipp@mathematik.uni-oldenburg.de }
+\author{Tim Garlipp, \email{TimGarlipp@gmx.de}}
 
 \seealso{\code{\link{edgepoints}}, \code{\link{oregMclust}},
   \code{\link{eplist}}}

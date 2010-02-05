@@ -22,10 +22,9 @@
              brminr=minsr,  brmaxr=maxsr,
              brmaxit=1000)
 
-  plot.circMclust(x, datax, datay,
+\method{plot}{circMclust}(x, datax, datay,
                   ccol="black", clty=1, clwd=3, ...)
-
-  print.circMclust(x, ...)
+\method{print}{circMclust}(x, ...)
 }
 
 \arguments{
@@ -94,7 +93,7 @@
 \details{
   \code{circMclust} implements a cluster method using local
   maxima  of redescending M-estimators for the case of circular
-  regression. This method is based on a method introduced by Müller and
+  regression. This method is based on a method introduced by Mueller and
   Garlipp in 2003 (see references).
   
   See also \code{\link{bestMclust}}, \code{\link{projMclust}}, and
@@ -112,12 +111,12 @@
 }
 
 \references{
-  Müller, C.H., Garlipp, T. (2003) Simple consistent cluster methods
+  Mueller, C.H., Garlipp, T. (2003) Simple consistent cluster methods
   based on redescending M-estimators with an application to edge
   identification in images, to appear in \emph{JMVA}.
 }
 
-\author{ Tim Garlipp, garlipp@mathematik.uni-oldenburg.de }
+\author{Tim Garlipp, \email{TimGarlipp@gmx.de}}
 
 \seealso{\code{\link{bestMclust}}, \code{\link{projMclust}},
   \code{\link{envMclust}}, \code{\link{deldupMclust}}}

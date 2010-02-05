@@ -18,10 +18,10 @@
 
   regparm(reg)
 
-  plot.oregMclust(x, datax, datay, prec=3,
+  \method{plot}{oregMclust}(x, datax, datay, prec=3,
                   rcol="black", rlty=1, rlwd=3, ...)
 
-  print.oregMclust(x, ...)
+  \method{print}{oregMclust}(x, ...)
 }
 
 \arguments{
@@ -83,7 +83,7 @@
 \details{
   \code{oregMclust} implements a cluster method based on redescending
   M-estimators for the case of orthogonal regression. This method is
-  introduced by Müller and Garlipp in 2003 (see references).
+  introduced by Mueller and Garlipp in 2003 (see references).
 
   \code{regparm} transforms the columns "alpha" and "beta" to
   "intersept" and "slope".
@@ -104,12 +104,12 @@
   function and the number, how often they are found.
 }
 \references{
-  Müller, C.H., Garlipp, T. (2003) Simple consistent cluster methods
+  Mueller, C.H., Garlipp, T. (2003) Simple consistent cluster methods
   based on redescending M-estimators with an application to edge
   identification in images, to appear in \emph{JMVA}.
 }
 
-\author{ Tim Garlipp, garlipp@mathematik.uni-oldenburg.de }
+\author{Tim Garlipp, \email{TimGarlipp@gmx.de}}
 
 \seealso{\code{\link{bestMclust}}, \code{\link{projMclust}},
   \code{\link{envMclust}}, \code{\link{deldupMclust}}}

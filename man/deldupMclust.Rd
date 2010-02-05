@@ -43,11 +43,12 @@
 }
 
 \references{
-  Müller, C.H., Garlipp, T. (2003) Simple consistent cluster methods
+  Mueller, C.H., Garlipp, T. (2003) Simple consistent cluster methods
   based on redescending M-estimators with an application to edge
   identification in images, to appear in \emph{JMVA}.
 }
-\author{ Tim Garlipp, garlipp@mathematik.uni-oldenburg.de }
+
+\author{Tim Garlipp, \email{TimGarlipp@gmx.de}}
 
 \seealso{\code{\link{oregMclust}}, \code{\link{circMclust}}}
 

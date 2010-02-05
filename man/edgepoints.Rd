@@ -109,13 +109,13 @@
 \references{
   Garlipp, T. (2004), On Robust Jump Detection in Regression Surface
   with Applications to Image Analysis,
-  \emph{Carl-von-Ossietzky-Universität Oldenburg, Dissertation}
+  \emph{Carl-von-Ossietzky-Universitaet Oldenburg, Dissertation}
   
   Qiu, P. (1997), Nonparametric Estimation of Jump Surface, \emph{The
   Indian Journal of Statistics}, 59A, No.2, 268-294.
 }
 
-\author{ Tim Garlipp, garlipp@mathematik.uni-oldenburg.de }
+\author{Tim Garlipp, \email{TimGarlipp@gmx.de}}
 
 \seealso{\code{\link{eplist}}}
 
