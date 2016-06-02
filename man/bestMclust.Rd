@@ -12,9 +12,9 @@
 
 \usage{
 
-  bestMclust(clust, nc=1, crit="value")
+  bestMclust(clust, nc = 1, crit = "value")
   projMclust(clust, x, y)
-  envMclust(clust, x, y, dist=0)
+  envMclust(clust, x, y, dist = 0)
 
 }
 
@@ -22,7 +22,7 @@
 
   \item{clust}{Cluster object returned by \code{oregMclust} or \code{circMclust}.}
   \item{nc}{Number of 'best' clusters.}
-  \item{crit}{Name of the column to determine the best clusters.}
+  \item{crit}{Name of the column that should be used to determine the best clusters.}
   \item{x,y}{Original observations.}
   \item{dist}{Maximal distance of observation from cluster center.}
 
@@ -40,24 +40,22 @@
   \code{projMclust} adds a column \code{proj} to \code{clust} which
   contains the number of points belonging to each cluster in the sense
   that each observation belongs to the cluster with shortest orthogonal
-  distance. If \code{clust} is comming from \code{circMclust} a second
-  column \code{projrel} is added which contains this number relativ to
+  distance. If \code{clust} is coming from \code{circMclust}, a second
+  column \code{projrel} is added which contains this number relative to
   the radius of the particular circle.
 
   \code{envMclust} adds a column \code{env} to \code{clust} which
   contains the number of observations lying in a
   \code{dist}-neighbourhood of each cluster center. If \code{clust} is
   comming from \code{circMclust} a second column \code{envrel} is added
-  which contains this number relativ to the radius of the particular
+  which contains this number relative to the radius of the particular
   circle.
 }
 \value{
-  Both functions return a matrix of clusters.
+  A matrix of clusters.
 }
 \references{
-  Mueller, C.H., Garlipp, T. (2003) Simple consistent cluster methods
-  based on redescending M-estimators with an application to edge
-  identification in images, to appear in \emph{JMVA}.
+  Mueller, C. H., & Garlipp, T. (2005). Simple consistent cluster methods based on redescending M-estimators with an application to edge identification in images. Journal of Multivariate Analysis, 92(2), 359--385.
 }
 \author{Tim Garlipp, \email{TimGarlipp@gmx.de}}
 \keyword{ cluster }

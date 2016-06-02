@@ -583,4 +583,4 @@ extern "C" {
     return;
     } // c_edgepoints
     
-} // extern
+ } // extern

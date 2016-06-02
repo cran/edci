@@ -7,25 +7,26 @@
 }
 
 \usage{
-  deldupMclust(clust, prec=NULL, ncol=NULL, dz=TRUE)
+  deldupMclust(clust, prec = NULL,
+    ncol = NULL, dz = TRUE)
 }
 
 \arguments{
-  \item{clust}{numerical matrix, which columns contain the parameters of
+  \item{clust}{numerical matrix whose columns contain the parameters of
     the clusters.}
   \item{prec}{optional positive integer. Number of decimal places for
     rounding.}
-  \item{ncol}{Number of columns describing the clusters.}
-  \item{dz}{optional boolean. With \code{dz=TRUE} clusters are deleted,
-    for which the objective function has value 0.}
+  \item{ncol}{number of columns describing the clusters. See details.}
+  \item{dz}{optional boolean. With \code{dz = TRUE}, those clusters
+    for which the objective function has value 0 are deleted.}
 }
 
 \details{
   Since clusters found by \code{oregMclust} or \code{circMclust} often
   differ only by rounding errors, the function
   \code{deldupMclust} can be used for rounding and deleting
-  duplicates. If \code{clust} has a column named \code{count} their
-  values are summed appropriate. Otherwise such a column is added.
+  duplicates. If \code{clust} has a column named "count", its
+  values are summed appropriately. Otherwise such a column is added.
   
   For parameter \code{clust} the object returned from \code{oregMclust}
   or \code{circMclust} can be used. Alternatively, an arbitrary matrix
@@ -33,19 +34,17 @@
   clusters.
   The parameter \code{prec} is the number of decimal places for
   rounding; the default is no rounding.
-  With \code{ncol} the number of columns, which describe the clusters,
+  With \code{ncol}, the number of columns that describe the clusters
   can be given. This is not needed, if \code{clust} is an object
   returned from \code{oregMclust} or \code{circMclust}.
 }
 
 \value{
-  Return value is an object of the same type as \code{clust}.
+  An object of the same type as \code{clust}.
 }
 
 \references{
-  Mueller, C.H., Garlipp, T. (2003) Simple consistent cluster methods
-  based on redescending M-estimators with an application to edge
-  identification in images, to appear in \emph{JMVA}.
+  Mueller, C. H., & Garlipp, T. (2005). Simple consistent cluster methods based on redescending M-estimators with an application to edge identification in images. Journal of Multivariate Analysis, 92(2), 359--385.
 }
 
 \author{Tim Garlipp, \email{TimGarlipp@gmx.de}}
