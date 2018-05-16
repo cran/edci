@@ -1,4 +1,4 @@
-55bfa4116e5cc24339ac58053376c24e *DESCRIPTION
+d31d774d4a206d17cfc91c4ca2c7ba84 *DESCRIPTION
 abe14c92baab0e8d67889916c4257504 *NAMESPACE
 c9b7fa800434880060248737e3f96b0b *R/edgecluster.R
 d1edf8a950ce5a5e5880fbf01be80922 *R/edgepoints.R
@@ -11,6 +11,7 @@ a188c486f7536d875e1850947d23dc97 *man/edgepoints.Rd
 44a82e885c2ff6faf596188836234d7c *man/eplist.Rd
 8e0be8906dd2865c8fdc44358d91ddd2 *man/oregMclust.Rd
 5e5e4a057f1daed7c56d00ab006d1898 *src/edgepoints.cc
-089847325121b12317461e547a8a9ba5 *src/oregMclust.cc
+a089ef255b5a3067b8289a146e24c0bf *src/init.c
+e1fe4290c65945c4b920ecfcf0c74929 *src/oregMclust.cc
 7d6acdadbf0169724829a7f916878c64 *src/statist.cc
 f9fe4ff611b7c751f453d1c75bca6da3 *src/statist.h

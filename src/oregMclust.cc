@@ -6,8 +6,8 @@ using namespace std;
 #define QUAD(x) ((x)*(x))
 
 #define BFAK 1.6 // Faktor zum Beschleunigen der Schrittweite
-#define DFAK 0.7 // Faktor zum Dämpfen der Schrittweite (Armijo-Schrittweite)
-#define AFAK 0.5 // Faktor für die Abbruchbedingun im Armijo-Verfahren
+#define DFAK 0.7 // Faktor zum D?mpfen der Schrittweite (Armijo-Schrittweite)
+#define AFAK 0.5 // Faktor f?r die Abbruchbedingun im Armijo-Verfahren
 
 //#define PI 3.141592654
 
@@ -43,22 +43,22 @@ extern "C" {
 	int    *const n,           // Anzahl der Beobachtungen
 	double *const bandbreite,
 	int    *const method,      // Methode der Bestimmung der Startwerte:
-	                           // 0: Für jede Beobachtung 'anzwinkel'
+	                           // 0: F?r jede Beobachtung 'anzwinkel'
  	                           //    verschiedene Winkel
-        	                   // 1: Für jede Beobachtung den Winkel
+        	                   // 1: F?r jede Beobachtung den Winkel
        	                           //    aus 'startwinkel'
 	                           // 2: Nur die eine Gerade mit Parametern
 	                           //    'salpha', 'sbeta'
 	                           // 3: Alle geraden durch jeweils zwei
 	                           //    Beobachtungen
-	                           // Die jeweils nicht benötigten Parameter
-	                           // dürfen 'NULL' sein.
-	int    *const anzwinkel,   // Anzahl der Startwerte für den Winkel
-	double *const startwinkel, // Startwerte für die Winkel
+	                           // Die jeweils nicht ben?tigten Parameter
+	                           // d?rfen 'NULL' sein.
+	int    *const anzwinkel,   // Anzahl der Startwerte f?r den Winkel
+	double *const startwinkel, // Startwerte f?r die Winkel
 	double *const salpha,      // Parameter der Startgeraden
 	double *const sbeta,
 	int    *const brmaxit,     // Abbruch nach brmaxit Iterationen
-	// Rückgabewerte
+	// R?ckgabewerte
 	double *const alpha,       // Parameter der gefundenen Geraden
 	double *const beta, 
 	double *const value,       // und zugehoehriger Wert der scorefkt.
@@ -69,15 +69,15 @@ extern "C" {
 	                           
     {
 	int i, j, k;
-	double a, b;                       // Schaetzungen für alpha und beta
-	double diff_a, diff_b;             // Schrittlängen
+	double a, b;                       // Schaetzungen f?r alpha und beta
+	double diff_a, diff_b;             // Schrittl?ngen
 	double h, ha, hb, haa, hab, hbb;   // Wert von Hn sowie erste und 
 	                                   // zweite Ableitungen
 	double det;                        // Determinante der Hessematrix
 	double hilf, hilfa, hilfb, hilfaa; // Innerer Term + innere Ableitungen
 	double hilf_h;                     // Wert von Hn an anderer Stelle
 	double fak;                        // Faktor zum Beschleunigen oder
-	                                   // Dämpfen der Schrittweite
+	                                   // D?mpfen der Schrittweite
 	double r[3];                       // Vektor der Scorefkt. und deren
 	                                   // Ableitungen
 	double sn = *bandbreite;           // Bandbreite
@@ -172,7 +172,7 @@ extern "C" {
 			    diff_a = -(hbb/det*ha-hab/det*hb);
 			    diff_b = -(-hab/det*ha+haa/det*hb);
 
-			    fak = DFAK; // Der Newtonschritt muß noch gedämpft
+			    fak = DFAK; // Der Newtonschritt mu? noch ged?mpft
 			                // werden
       			}
 			else {                               // Stepest Descent
@@ -181,9 +181,9 @@ extern "C" {
 			    diff_b = -hb;
 
 			    // Beschleunigung des Verfahrens durch
-			    // Vergrößerung der Schrittweite:
+			    // Vergr??erung der Schrittweite:
 			    // Solange Hn in Richtung des Gradienten kleiner 
-			    // wird, kann die Schrittweite vergrößert werden
+			    // wird, kann die Schrittweite vergr??ert werden
 
 			    fak = 1/BFAK;
 			    do {
@@ -201,10 +201,10 @@ extern "C" {
 			                      // abgebrochen werden, ist fak 
 			                      // jetzt < 1 und die
 			                      // Schrittweite wird gleich 
-			                      // gedämpft.
+			                      // ged?mpft.
 			}
 
-			// Dämpfung der Schrittweite nach 'Armijo's Rule', 
+			// D?mpfung der Schrittweite nach 'Armijo's Rule', 
 			// falls nicht gerade beschleunigt wurde
 
 			if (fak < 1){
@@ -224,7 +224,7 @@ extern "C" {
 				     ((begrenzen == 1) | (fak > 0.0001)));
 			}
 
-			if (altdiff_a*diff_a < 0 | altdiff_b*diff_b < 0)
+			if ((altdiff_a*diff_a < 0) | (altdiff_b*diff_b < 0))
 			    begrenzen = 0;
 			altdiff_a = diff_a;
 			altdiff_b = diff_b;
@@ -252,7 +252,7 @@ extern "C" {
 
     //*****************************************************************************************************
 
-    // Orthogonale Regression für Kreise
+    // Orthogonale Regression f?r Kreise
     void c_oregMcirc (double *const x, double *const y,  // x- und y- Koordinaten der Beobachtungen
 		      int    *const n,                   // Anzahl der Beobachtungen
 		      double *const bandbreite,
@@ -269,21 +269,21 @@ extern "C" {
 		      double *const breakminx,           // Wenn die Parameter diese Grenzen
 		      double *const breakmaxx,           // verlassen oder die Anzahl der
 		      double *const breakminy,           // Minimierungsiterationen "breakmaxit"
-		      double *const breakmaxy,           // übersteigt, wird abgebrochen
+		      double *const breakmaxy,           // ?bersteigt, wird abgebrochen
 		      double *const breakminr,
 		      double *const breakmaxr,
 		      int    *const breakmaxit,
-		      // Rückgabewerte
+		      // R?ckgabewerte
 		      double *const cx,                  // Mittelpunkte und
 		      double *const cy,
 		      double *const r,                   // Radien der gefundenen Kreise
-		      double *const value,               // und zugehörige Werte der Scorefunktion
+		      double *const value,               // und zugeh?rige Werte der Scorefunktion
 		      int          *count)               // Anzahl der gefundenen Kreise
     {
 	int i1, i2, i3, k;
 
-	double a1, a2, b;                   // Schaetzungen für cx/cy und r
-	double diff_a1, diff_a2, diff_b;    // Schrittlängen
+	double a1, a2, b;                   // Schaetzungen f?r cx/cy und r
+	double diff_a1, diff_a2, diff_b;    // Schrittl?ngen
 	double h, ha1, ha2, hb,             // Wert von Hn sowie erste und zweite Ableitungen
 	    ha1a1, ha1a2, ha1b,
 	    ha2a1, ha2a2, ha2b,
@@ -292,7 +292,7 @@ extern "C" {
 	double in, hilf, hilfa1, hilfa2,    // Innerer Term + innere Ableitungen
 	    hilfb, hilfa1a1, hilfa2a2, hilfaa;
 	double hilf_h, merk_h ;             // Wert von Hn an anderer Stelle
-	double fak;                         // Faktor zum Beschleunigen oder Dämpfen der Schrittweite
+	double fak;                         // Faktor zum Beschleunigen oder D?mpfen der Schrittweite
 	double rhovec[3];                   // Vektor der Scorefkt. und deren Ableitungen
 	double sn = *bandbreite;            // Bandbreite
 	int anz;
@@ -306,7 +306,7 @@ extern "C" {
 	anz = (*n)*((*n)-1)/2;
 	int    abbr;
 	double breakmindiff, sbmd;          // Minimierung abbrechen, wenn Parameter sich um weniger
-	                                    // als breakmindiff verändern
+	                                    // als breakmindiff ver?ndern
 
 	double startx, starty, startr1;
 
@@ -320,7 +320,7 @@ extern "C" {
 	sbmd = 0.0001*sqrt(((*breakmaxx)-(*breakminx))>((*breakmaxy)-(*breakminy))?
 			   ((*breakmaxx)-(*breakminx)):((*breakmaxy)-(*breakminy)));
 
-	// Für je drei Punkte den durch diese laufenden Kreis als Startwert
+	// F?r je drei Punkte den durch diese laufenden Kreis als Startwert
 
 	von = 0;
 	if (*method==0)
@@ -356,7 +356,7 @@ extern "C" {
 			if (*method==0)
 			    Rprintf("starting points %i/%i/%i of %i:",i1,i2,i3,*n);
 			
-			// Die Punkte so permutieren, daß y3!=y1!=y2, falls die drei Punkte 
+			// Die Punkte so permutieren, da? y3!=y1!=y2, falls die drei Punkte 
 			// nicht auf einer geraden liegen
 			if (y[i1] == y[i2]){
 			    x1 = x[i3]; y1 = y[i3];
@@ -385,7 +385,7 @@ extern "C" {
 			                                    // Mittelsenkrechten zwischen
 			    bc = (y2+y1)/2 - mc*(x2+x1)/2;  // (x1,y1) und (x2,y2)
 			
-			    mb = - (x3-x1)/(y3-y1);         // Dito für (x1,y1) und (x3,y3)
+			    mb = - (x3-x1)/(y3-y1);         // Dito f?r (x1,y1) und (x3,y3)
 			    bb = (y3+y1)/2 - mb*(x3+x1)/2;
 			
 			    a1 = (bb-bc)/(mc-mb);       // Schnittpunkt der beiden Mittelsenkrechten
@@ -472,7 +472,7 @@ extern "C" {
 						+( ha1a1*hba1 -ha1a1*hba2) /det*ha2 
 						+(-ha2a2*ha2a1+ha1a1*ha2a2)/det*hb);
 				    
-				fak = DFAK; // Der Newtonschritt muß noch gedämpft werden
+				fak = DFAK; // Der Newtonschritt mu? noch ged?mpft werden
 			    }
 			    else {                                           // Stepest Descent
 				// Die Richtung ist der Gradient
@@ -481,9 +481,9 @@ extern "C" {
 				diff_b  = -hb;
 				
 				// Beschleunigung des Verfahrens durch
-				// Vergrößerung der Schrittweite:
+				// Vergr??erung der Schrittweite:
 				// Solange Hn in Richtung des Gradienten kleiner wird,
-				// kann die Schrittweite vergrößert werden
+				// kann die Schrittweite vergr??ert werden
 				
 				fak = 1;
 				if (begrenzen == 1){
@@ -505,10 +505,10 @@ extern "C" {
 				fak = fak / BFAK; // Sollte die Schleife schon nach einem 
 				                  // Durchlauf abgebrochen werden, ist fak 
 				                  // jetzt < 1 und die Schrittweite 
-				                  // wird gleich gedämpft.
+				                  // wird gleich ged?mpft.
 			    }
 			    
-			    // Dämpfung der Schrittweite nach 'Armijo's Rule', falls nicht gerade
+			    // D?mpfung der Schrittweite nach 'Armijo's Rule', falls nicht gerade
 			    // Beschleunigt wurde
 			    
 			    if (fak < 1){
@@ -528,8 +528,8 @@ extern "C" {
 					 && ((begrenzen == 1) | (fak > 0.1*sbmd)));
 			    }
 			    
-			    if (altdiff_a1*diff_a1 < 0 | altdiff_a2*diff_a2 < 0 |
-				altdiff_b*diff_b < 0){
+			    if ((altdiff_a1*diff_a1 < 0) | (altdiff_a2*diff_a2 < 0) |
+				(altdiff_b*diff_b < 0)){
 				begrenzen = 0;
 			    }
 			    altdiff_a1 = diff_a1;
